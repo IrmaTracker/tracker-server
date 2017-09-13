@@ -9,5 +9,11 @@ class AbstractRequestBase(models.Model):
     created_on = models.DateTimeField("Created on", editable=False, auto_now_add=True)
     resolved = models.BooleanField("Request Resolved", default=False, db_index=True)
 
+    # CallApp Specific Tables
+    lat = models.DecimalField("Lat", max_digits=9, decimal_places=6, help_text="Latitude", blank=True, null=True)
+    long = models.DecimalField("Long", max_digits=9, decimal_places=6, help_text="Longitude", blank=True, null=True)
+    time = models.CharField("Time", max_length=75, null=True, blank=True)
+    contact = models.CharField("Contact", max_length=128, null=True, blank=True)
+
     class Meta:
         abstract = True
