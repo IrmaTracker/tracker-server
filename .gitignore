@@ -1,0 +1,8 @@
+venv/
+.idea/
+*.pyc
+peopletracker/local_settings.py
+db.sqlite3
+db.json
+.env
+cache/

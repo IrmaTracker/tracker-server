@@ -1,0 +1,3 @@
+from .area_serializers import AreaSerializer
+from .person_serializers import PersonSerializer
+from .topic_serializers import TopicSerializer

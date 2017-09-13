@@ -1,0 +1,17 @@
+{% extends 'tracker/base.html' %}
+{% load bootstrap3 %}
+{% block body %}
+    <ul class="list-unstyled">
+        <li><a href="{% url 'tracker:person_list' slug=area.slug %}" class="btn btn-default btn-xs">Back to persons</a></li>
+    </ul>
+    <div class="jumbotron">
+        <h1 class="lead">Add someone to this list</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include 'tracker/person/form.html' %}
+            <div class="form-group">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

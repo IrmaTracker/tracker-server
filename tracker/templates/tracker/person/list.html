@@ -1,0 +1,67 @@
+{% extends 'tracker/base.html' %}
+{% load i18n %}
+{% block body %}
+    <p class="lead"><strong>{{ area.name }}</strong> database ({{ showing }})</p>
+    <ul class="list-unstyled">
+        <li><a href="{% url 'tracker:area_list' %}" class="btn btn-default btn-xs">Back to Countries/Islands</a></li>
+    </ul>
+    <ul class="list-unstyled list-inline">
+        <li>
+            <form class="form-inline">
+                <div class="form-group">
+                    <label class="sr-only">Person Search</label>
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Search for name..." name="q" required>
+                    </div>
+                </div>
+                <button class="btn btn-primary">Search</button>
+            </form>
+        </li>
+        <li>
+            <a href="{% url 'tracker:create_person' slug=area.slug %}" class="btn btn-primary">Add person to list</a>
+        </li>
+    </ul>
+
+    <ul class="list-unstyled list-inline">
+        <li><a href="{% url 'tracker:person_list' slug=area.slug %}" class="btn btn-primary">Show All</a></li>
+        <li><a href="{% url 'tracker:safe_person_list' slug=area.slug %}" class="btn btn-success">View Safe List</a></li>
+        <li><a href="{% url 'tracker:missing_person_list' slug=area.slug %}" class="btn btn-warning">View Missing List</a></li>
+    </ul>
+
+    <table class="table table-bordered table-condensed">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>District</th>
+            <th>Safe</th>
+            <th>Extra info</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for person in person_list %}
+            <tr>
+                <td><a href="{{ person.get_absolute_url }}">{{ person.name }}</a></td>
+                <td>{{ person.address }}</td>
+                <td>{{ person.district | default:'Not specified' }}</td>
+                <td>{{ person.safe | yesno:'Yes,Unknown' }}</td>
+                <td>{{ person.extra_info }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if is_paginated %}
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; {% trans 'Previous' %}</a></li>
+            {% else %}
+                <li class="disabled"><span>&laquo; {% trans 'Previous' %}</span></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %} &raquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>{% trans 'Next' %} &raquo;</span></li>
+            {% endif %}
+        </ul>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'forum/base.html' %}
+{% load bootstrap3 %}
+{% block title %}{{ topic.name }}{% endblock %}
+{% block body %}
+    <ul class="list-unstyled">
+        <li><a href="{% url 'news:topics' %}"><i class="glyphicon glyphicon-chevron-left"></i> Back to announcements</a></li>
+    </ul>
+    <h2>{{ topic.name }}</h2>
+    <ul class="list-inline list-unstyled">
+        <li>Published at: {{ topic.created_on }} {% if topic.updated_on %}| Updated on: {{ topic.updated_on }}{% endif %}</li>
+    </ul>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {{ topic.content | safe }}
+        </div>
+    </div>
+{% endblock %}

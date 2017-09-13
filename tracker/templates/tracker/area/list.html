@@ -1,0 +1,26 @@
+{% extends 'tracker/base.html' %}
+{% block body %}
+<h3>How to use this site:</h3>
+    <ul>
+        <li>Select an island/country from the list below</li>
+        <li>Click on "Search list of people" to see a list of people who have been reported missing/unreachable</li>
+        <li>or click on "Add missing person" to submit a name of the person or people you're looking for</li>
+    </ul>
+    <hr/>
+    <div class="alert alert-danger">
+        <p><strong>Attention:</strong></p>
+        <ul>
+            <li>We have added the ability to provide more information about missing person(s).</li>
+            <li>Requesters can receive an automated email alert once missing persons are "marked safe" by providing an email in the "requester email" field.</li>
+            <li><a href="{% url 'news:topics' %}" class="btn btn-primary">Important Updates</a></li>
+        </ul>
+    </div>
+    <hr/>
+    <p class="lead">Select one of the islands/countries affected by Irma:<br/>
+    </p>
+    <ul class="list-unstyled list-inline">
+        {% for area in area_list %}
+            <li><a href="{{ area.get_absolute_url }}" class="btn btn-primary btn-lg">{{ area.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

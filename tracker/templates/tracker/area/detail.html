@@ -1,0 +1,27 @@
+{% extends 'tracker/base.html' %}
+{% block title %}Person Tracker - {{ area.name }}{% endblock %}
+{% block body %}
+    <ul class="list-unstyled">
+        <li><a href="{% url 'tracker:area_list' %}" class="btn btn-default btn-xs">Back to Countries/Islands</a></li>
+    </ul>
+    <p class="lead">Area: <strong>{{ area.name }}</strong></p>
+    <div class="jumbotron">
+        <h3 class="text-center">{{ missing }} missing/unreachable people.</h3>
+        <h3 class="text-center">{{ safe }} people reported safe.</h3>
+        <h5 class="text-center">Please help keep this database up to date</h5>
+        <ul class="list-unstyled text-center">
+            <li><a href="{% url 'tracker:person_list' slug=area.slug %}" class="btn btn-primary btn-lg">Search list of people</a></li>
+            <li>OR</li>
+            <li><a href="{% url 'tracker:create_person' slug=area.slug %}" class="btn btn-primary btn-lg">Add missing person(s)</a></li>
+        </ul>
+        {% if area.slug == 'st-maarten' or area.slug == 'st-martin' %}
+            <ul class="list-unstyled text-center">
+                <li><a href="{% url 'tracker:submit_emergency' slug=area.slug %}" class="btn btn-danger btn-lg">Report an emergency</a></li>
+                <li>OR</li>
+                <li><a href="{% url 'tracker:request_supplies' slug=area.slug %}" class="btn btn-danger btn-lg">I want to request supplies</a></li>
+                <li>-</li>
+                <li><a href="{% url 'tracker:submit_supplies' slug=area.slug %}" class="btn btn-danger btn-lg">I want to share supplies</a></li>
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}

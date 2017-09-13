@@ -1,0 +1,36 @@
+{% extends 'forum/base.html' %}
+{% load i18n %}
+{% block body %}
+    <ul class="list-unstyled">
+        <li><a href="{% url 'tracker:area_list' %}"><i class="glyphicon glyphicon-chevron-left"></i> Back to Countries/Islands</a></li>
+    </ul>
+    {% for topic in topic_list %}
+        <div class="list-group">
+            <a href="{{ topic.get_absolute_url }}" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ topic.name }}</h4>
+                <p class="list-group-item-text">
+                    {{ topic.content | striptags | truncatewords:"25" | safe }}
+                </p>
+                <p class="list-group-item-text">
+                    <span class="label label-primary">Date: {{ topic.created_on }}</span>
+                    <span class="label label-danger pull-right">Click to read!</span>
+                <div class="clearfix"></div>
+                </p>
+            </a>
+        </div>
+    {% endfor %}
+    {% if is_paginated %}
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; {% trans 'Previous' %}</a></li>
+            {% else %}
+                <li class="disabled"><span>&laquo; {% trans 'Previous' %}</span></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %} &raquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>{% trans 'Next' %} &raquo;</span></li>
+            {% endif %}
+        </ul>
+    {% endif %}
+{% endblock %}

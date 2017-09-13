@@ -1,0 +1,25 @@
+{% extends 'tracker/base.html' %}
+{% block title %}Report Emergencies - {{ area.name }}{% endblock %}
+{% load bootstrap3 %}
+{% block body %}
+    <ul class="list-unstyled">
+        <li><a href="{% url 'tracker:area_detail' slug=area.slug %}" class="btn btn-default btn-xs">Go back</a></li>
+    </ul>
+    <div class="jumbotron">
+        <h1 class="lead text-center">Report An Emergency</h1>
+        <p class="text-center">Please keep in mind that many others are in need of emergency relief. <br/>
+            Only use this form if you're in an actual emergency situation.</p>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success text-center">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class="form-group">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

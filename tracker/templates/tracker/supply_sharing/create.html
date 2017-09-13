@@ -1,0 +1,23 @@
+{% extends 'tracker/base.html' %}
+{% block title %}Share Supplies - {{ area.name }}{% endblock %}
+{% load bootstrap3 %}
+{% block body %}
+    <ul class="list-unstyled">
+        <li><a href="{% url 'tracker:area_detail' slug=area.slug %}" class="btn btn-default btn-xs">Go back</a></li>
+    </ul>
+    <div class="jumbotron">
+        <h1 class="lead text-center">I want to share supplies!</h1>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success text-center">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class="form-group">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
