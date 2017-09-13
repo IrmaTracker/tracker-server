@@ -27,8 +27,8 @@ class PersonListView(generic.ListView):
         area_slug = self.kwargs.get('slug')
         if self.request.GET.get('q'):
             name = self.request.GET.get('q')
-            return Person.objects.filter(name__icontains=name, area__slug=area_slug)
-        return Person.objects.filter(area__slug=area_slug)
+            return Person.objects.filter(name__icontains=name, area__slug=area_slug, duplicate=False)
+        return Person.objects.filter(area__slug=area_slug, duplicate=False)
 
 
 class PersonMarkedSafeListView(generic.ListView):
@@ -52,8 +52,8 @@ class PersonMarkedSafeListView(generic.ListView):
         area_slug = self.kwargs.get('slug')
         if self.request.GET.get('q'):
             name = self.request.GET.get('q')
-            return Person.objects.filter(name__icontains=name, area__slug=area_slug, safe=True)
-        return Person.objects.filter(area__slug=area_slug, safe=True)
+            return Person.objects.filter(name__icontains=name, area__slug=area_slug, safe=True, duplicate=False)
+        return Person.objects.filter(area__slug=area_slug, safe=True, duplicate=False)
 
 
 class PersonMissingListView(generic.ListView):
@@ -78,8 +78,8 @@ class PersonMissingListView(generic.ListView):
         area_slug = self.kwargs.get('slug')
         if self.request.GET.get('q'):
             name = self.request.GET.get('q')
-            return Person.objects.filter(name__icontains=name, area__slug=area_slug, safe=False)
-        return Person.objects.filter(area__slug=area_slug, safe=False)
+            return Person.objects.filter(name__icontains=name, area__slug=area_slug, safe=False, duplicate=False)
+        return Person.objects.filter(area__slug=area_slug, safe=False, duplicate=False)
 
 
 class CreatePersonView(generic.CreateView):

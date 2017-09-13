@@ -4,7 +4,7 @@ from tracker.models import Person, Area
 
 
 def export_file():
-    people = Person.objects.filter(area__slug__in=['st-maarten', 'st-martin'], safe=False).values(
+    people = Person.objects.filter(area__slug__in=['st-maarten', 'st-martin'], safe=False, duplicate=False).values(
         'name', 'district', 'phonenumber', 'address', 'safe', 'extra_info'
     )
 
@@ -29,7 +29,7 @@ def get_missing_person_count(slug):
     cached_count = cache.get(cache_key)
     if cached_count:
         return cached_count
-    count = area.person_set.filter(safe=False).count()
+    count = area.person_set.filter(safe=False, duplicate=False).count()
     cache.set(cache_key, count, 600)
     return count
 
@@ -40,6 +40,6 @@ def get_safe_person_count(slug):
     cached_count = cache.get(cache_key)
     if cached_count:
         return cached_count
-    count = area.person_set.filter(safe=True).count()
+    count = area.person_set.filter(safe=True, duplicate=False).count()
     cache.set(cache_key, count, 600)
     return count
