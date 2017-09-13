@@ -17,7 +17,8 @@ class SupplyShareSerializer(serializers.ModelSerializer):
             'lat',
             'long',
             'time',
-            'contact'
+            'contact',
+            'request'
         )
         read_only_fields = (
             'resolved',
