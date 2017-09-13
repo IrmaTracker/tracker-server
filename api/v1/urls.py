@@ -11,6 +11,11 @@ router = DefaultRouter(trailing_slash=False)
 router.register(r'areas', views.AreaViewSet)
 router.register(r'persons', views.PersonViewSet)
 router.register(r'announcements', views.AnnouncementViewSet)
+router.register(r'supply', views.SupplyViewSet)
+router.register(r'supply-shares', views.SupplySharingViewSet)
+router.register(r'supply-requests', views.SupplyRequestViewSet)
+router.register(r'emergency-requests', views.EmergencyRequestViewSet)
+
 
 urlpatterns = [
     url(r'^', include(router.urls)),

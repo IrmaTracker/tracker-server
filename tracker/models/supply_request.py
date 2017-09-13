@@ -9,6 +9,7 @@ class SupplyRequest(AbstractRequestBase):
     dropoff_instructions = models.TextField("Dropoff Instructions", null=True, blank=True, help_text=PICKUP_INSTRUCTIONS)
 
     class Meta:
+        ordering = ['created_on', '-resolved']
         db_table = "supply_requests"
         verbose_name = "Supply Request"
         verbose_name_plural = "Supply Requests"

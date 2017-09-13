@@ -72,8 +72,8 @@ class PersonViewSet(viewsets.ModelViewSet):
         # if we get a request like `/api/v1/persons?area=1`
         # we'll filter persons by area.
         if area_id:
-            return queryset.filter(area_id=area_id)
-        return queryset
+            return queryset.filter(area_id=area_id, duplicate=False)
+        return queryset.filter(duplicate=False)
 
     def get_area_id(self):
         try:

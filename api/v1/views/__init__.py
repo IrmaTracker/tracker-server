@@ -1,3 +1,7 @@
 from .announcement_api_views import AnnouncementViewSet
 from .area_api_views import AreaViewSet
+from .emergency_request_api_views import EmergencyRequestViewSet
 from .person_api_views import PersonViewSet
+from .supply_api_views import SupplyViewSet
+from .supply_request_api_views import SupplyRequestViewSet
+from .supply_sharing_api_views import SupplySharingViewSet

@@ -22,6 +22,12 @@ class CustomPersonAdmin(ImportExportModelAdmin):
     search_fields = ('name', 'phonenumber', 'district', 'address')
     resource_class = PersonResource
 
+    def get_queryset(self, request):
+        queryset = super(CustomPersonAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return queryset
+        return queryset.filter(duplicate=False)
+
 
 class CustomEmergencyRequestAdmin(ImportExportModelAdmin):
     list_filter = ('resolved',)

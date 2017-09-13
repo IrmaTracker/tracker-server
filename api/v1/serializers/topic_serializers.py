@@ -7,11 +7,11 @@ class TopicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Topic
         fields = (
+            'id',
             'name',
             'content'
         ),
         read_only_fields = (
-            'id',
             'slug'
             'date'
         )

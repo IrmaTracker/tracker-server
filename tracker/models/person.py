@@ -30,6 +30,7 @@ class Person(models.Model):
     extra_info = models.TextField("Extra info", null=True, blank=True)
     created_on = models.DateTimeField("Created on", auto_now_add=True, editable=False)
     notified = models.BooleanField("Notified", default=False, editable=False)
+    duplicate = models.BooleanField("Duplicate", default=False, db_index=True)
 
     def get_absolute_url(self):
         return reverse('tracker:update_person', kwargs={'slug': self.area.slug, 'pk': self.id})

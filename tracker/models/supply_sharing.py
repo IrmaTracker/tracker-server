@@ -8,6 +8,7 @@ class SupplySharing(AbstractRequestBase):
     pickup_instructions = models.TextField("Pickup Instructions", null=True, blank=True, help_text=PICKUP_INSTRUCTIONS)
 
     class Meta:
+        ordering = ['created_on', '-resolved']
         db_table = "supply_sharing"
         verbose_name = "Supply Sharing"
         verbose_name_plural = "Supply Sharing"
