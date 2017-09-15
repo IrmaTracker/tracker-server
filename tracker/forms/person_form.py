@@ -41,16 +41,16 @@ class PersonForm(forms.ModelForm):
 
 class MarkSafePersonForm(forms.ModelForm):
     name = forms.CharField(disabled=True)
-    age = forms.IntegerField(disabled=True)
-    missing_since = forms.CharField(disabled=True)
+    age = forms.IntegerField(disabled=True, required=False)
+    missing_since = forms.CharField(disabled=True, required=False)
     address = forms.CharField(disabled=True)
     district = forms.CharField(disabled=True)
-    phonenumber = forms.CharField(disabled=True)
-    extra_info = forms.CharField(widget=forms.Textarea(), disabled=True)
+    phonenumber = forms.CharField(disabled=True, required=False)
+    extra_info = forms.CharField(widget=forms.Textarea(), disabled=True, required=False)
     requester_name = forms.CharField(disabled=True)
-    requester_email = forms.CharField(disabled=True)
-    requester_fb = forms.CharField(disabled=True)
-    requester_number = forms.CharField(disabled=True)
+    requester_email = forms.CharField(disabled=True, required=False)
+    requester_fb = forms.CharField(disabled=True, required=False)
+    requester_number = forms.CharField(disabled=True, required=False)
 
     class Meta:
         model = Person
