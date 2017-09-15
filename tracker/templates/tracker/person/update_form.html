@@ -1,0 +1,22 @@
+{% load bootstrap3 %}
+{% load cloudinary %}
+{% bootstrap_field form.name disable=True %}
+{% bootstrap_field form.age %}
+{% bootstrap_field form.address %}
+{% bootstrap_field form.district %}
+{% bootstrap_field form.phonenumber %}
+{% bootstrap_field form.missing_since %}
+<hr/>
+<p><strong>Check this if they are safe:</strong></p>
+{% bootstrap_field form.safe %}
+{% bootstrap_field form.marked_safe_by %}
+<hr/>
+<p><strong>Any additional information:</strong></p>
+{% bootstrap_field form.extra_info %}
+<hr/>
+<p><strong>Your contact information:</strong><br/>
+<small>If you specify an email, we'll send you a notification when the person is marked as safe.</small></p>
+{% bootstrap_field form.requester_name %}
+{% bootstrap_field form.requester_number %}
+{% bootstrap_field form.requester_email %}
+{% bootstrap_field form.requester_fb %}

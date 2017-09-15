@@ -18,9 +18,11 @@ class SupplyShareSerializer(serializers.ModelSerializer):
             'long',
             'time',
             'contact',
-            'request'
+            'request',
+            'resolved'
         )
         read_only_fields = (
+            'id',
             'resolved',
             'created_on'
         )

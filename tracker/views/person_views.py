@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.views import generic
-from tracker.forms import PersonForm
+from tracker.forms import PersonForm, MarkSafePersonForm
 from tracker.models import Person
 from tracker.utils import get_missing_person_count, get_cached_area, get_safe_person_count
 
@@ -109,7 +109,7 @@ class UpdatePersonView(generic.UpdateView):
     View or make updates to a person's profiles
     """
     model = Person
-    form_class = PersonForm
+    form_class = MarkSafePersonForm
     template_name = 'tracker/person/update.html'
 
     def get_context_data(self, **kwargs):

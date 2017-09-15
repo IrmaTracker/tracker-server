@@ -269,7 +269,8 @@ TRUSTED_DOMAINS = (
     'www.irmatracker.com',
     'irmatracker.com',
     'lemuelboyce.pythonanywhere.com',
-    'irmatracker.github.io'
+    'irmatracker.github.io',
+    'localhost:8080'
 )
 
 CORS_ORIGIN_ALLOW_ALL = False
@@ -279,7 +280,8 @@ CSRF_TRUSTED_ORIGINS = (
     'www.irmatracker.com',
     'irmatracker.com',
     'lemuelboyce.pythonanywhere.com',
-    'irmatracker.github.io'
+    'irmatracker.github.io',
+    'localhost:8080'
 )
 CORS_URLS_REGEX = r'^/api/.*$'
 CORS_ALLOW_METHODS = (

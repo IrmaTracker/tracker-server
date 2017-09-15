@@ -37,3 +37,35 @@ class PersonForm(forms.ModelForm):
                 'requester_fb',
                 'requester_number'
         )
+
+
+class MarkSafePersonForm(forms.ModelForm):
+    name = forms.CharField(disabled=True)
+    age = forms.IntegerField(disabled=True)
+    missing_since = forms.CharField(disabled=True)
+    address = forms.CharField(disabled=True)
+    district = forms.CharField(disabled=True)
+    phonenumber = forms.CharField(disabled=True)
+    extra_info = forms.CharField(widget=forms.Textarea(), disabled=True)
+    requester_name = forms.CharField(disabled=True)
+    requester_email = forms.CharField(disabled=True)
+    requester_fb = forms.CharField(disabled=True)
+    requester_number = forms.CharField(disabled=True)
+
+    class Meta:
+        model = Person
+        fields = (
+            'name',
+            'age',
+            'missing_since',
+            'district',
+            'address',
+            'phonenumber',
+            'safe',
+            'marked_safe_by',
+            'extra_info',
+            'requester_name',
+            'requester_email',
+            'requester_fb',
+            'requester_number'
+        )

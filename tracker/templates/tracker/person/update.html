@@ -8,7 +8,7 @@
         <h1 class="lead">Person: {{ person.name }}</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {% include 'tracker/person/form.html' %}
+            {% include 'tracker/person/update_form.html' %}
             <div class="form-group">
                 <button class="btn btn-primary">Submit</button>
             </div>

@@ -14,7 +14,28 @@
         {% endif %}
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {% bootstrap_form form %}
+            {% bootstrap_field form.full_name %}
+            {% bootstrap_field form.address %}
+            {% bootstrap_field form.district %}
+            {% bootstrap_field form.contact_numbers %}
+            {% bootstrap_field form.supplies %}
+            <div class="form-group">
+                <span>If you can't find the supplies you're looking for, please download our app.</span>
+                <ul class="list-inline list-unstyled">
+                    <li>
+                        <h3 class="text-center">
+                            <a href="https://play.google.com/store/apps/details?id=com.cellapp.irma&hl=en"><i class="fa fa-android" aria-hidden="true"></i><br/>Android</a>
+                        </h3>
+                    </li>
+                    <li>
+                        <h3 class="text-center">
+                            <a href="#"><i class="fa fa-apple" aria-hidden="true"></i><br/>iOS</a>
+                        </h3>
+                    </li>
+                </ul>
+            </div>
+            {% bootstrap_field form.quantity %}
+            {% bootstrap_field form.dropoff_instructions %}
             <div class="form-group">
                 <button class="btn btn-primary">Submit</button>
             </div>

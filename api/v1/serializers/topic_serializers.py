@@ -10,8 +10,8 @@ class TopicSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'content'
-        ),
+        )
         read_only_fields = (
-            'slug'
+            'slug',
             'date'
         )
