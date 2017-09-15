@@ -109,7 +109,7 @@ class UpdatePersonView(generic.UpdateView):
     View or make updates to a person's profiles
     """
     model = Person
-    form_class = MarkSafePersonForm
+    form_class = PersonForm
     template_name = 'tracker/person/update.html'
 
     def get_context_data(self, **kwargs):
