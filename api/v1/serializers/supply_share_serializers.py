@@ -14,11 +14,6 @@ class SupplyShareSerializer(serializers.ModelSerializer):
             'contact_numbers',
             'shareable_supplies',
             'pickup_instructions',
-            'lat',
-            'long',
-            'time',
-            'contact',
-            'request',
             'resolved'
         )
         read_only_fields = (

@@ -33,11 +33,6 @@ class EmergencyRequestSerializer(serializers.ModelSerializer):
             'requires_medical_supplies',
             'medical_supplies',
             'type_of_injuries',
-            'request',
-            'lat',
-            'long',
-            'time',
-            'contact',
             'request'
         )
         read_only_fields = (

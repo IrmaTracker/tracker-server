@@ -15,11 +15,6 @@ class SupplyRequestSerializer(serializers.ModelSerializer):
             'supplies',
             'quantity',
             'dropoff_instructions',
-            'lat',
-            'long',
-            'time',
-            'contact',
-            'request',
             'resolved'
         )
         read_only_fields = (
