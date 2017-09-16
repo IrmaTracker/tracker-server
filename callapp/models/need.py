@@ -18,6 +18,7 @@ class Need(AbstractBaseLocation):
     created_on = models.DateTimeField("Created on", auto_now_add=True, editable=False)
 
     class Meta:
+        ordering = ['created_on', '-solved']
         db_table = "needs"
         verbose_name = "Need"
         verbose_name_plural = "Needs"

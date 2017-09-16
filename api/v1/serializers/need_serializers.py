@@ -3,7 +3,8 @@ from callapp.models import Need
 
 
 class NeedSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(required=True)
 
     class Meta:
         model = Need
-        fields = ('need', 'need_id', 'link', 'name', 'time', 'contact', 'location', 'lat', 'long')
+        fields = ('name', 'need', 'need_id', 'link', 'time', 'contact', 'location', 'lat', 'long')
