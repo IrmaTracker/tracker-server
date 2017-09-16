@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from tracker.models import Emergency
+from callapp.models import Emergency
 from api.v1.serializers import EmergencySerializer
 
 

@@ -42,7 +42,8 @@ ALLOWED_HOSTS = [
 # Application definition
 PROJECT_APPS = [
     'tracker',
-    'forum'
+    'forum',
+    'callapp'
 ]
 
 THIRD_PARTY = [

@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from tracker.models import Emergency
+from callapp.models import Emergency
 
 
 class EmergencySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Emergency
-        fields = ('status', 'name', 'time', 'solved', 'lat', 'long')
+        fields = ('status', 'name', 'link', 'place', 'time', 'solved')

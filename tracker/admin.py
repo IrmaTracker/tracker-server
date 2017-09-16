@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib import admin
-from tracker.models import Person, Area, EmergencyRequest, SupplySharing, SupplyRequest, Supply, Post, Emergency, HelpLine
+from tracker.models import Person, Area, EmergencyRequest, SupplySharing, SupplyRequest, Supply
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
@@ -46,7 +46,7 @@ admin.site.register(Person, CustomPersonAdmin)
 admin.site.register(EmergencyRequest, CustomEmergencyRequestAdmin)
 admin.site.register(SupplySharing, CustomSupplyAdmin)
 admin.site.register(SupplyRequest, CustomSupplyAdmin)
-admin.site.register([Area, Supply, Post, Emergency, HelpLine])
+admin.site.register([Area, Supply])
 
 # portal overrides
 admin.site.site_title = "Tracker Admin"

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from tracker.models import HelpLine
+from callapp.models import HelpLine
 
 
 class HelpLineSerializer(serializers.ModelSerializer):

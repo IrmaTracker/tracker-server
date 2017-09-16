@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from tracker.models import Post
+from callapp.models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
