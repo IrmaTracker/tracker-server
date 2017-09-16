@@ -12,8 +12,10 @@ class Emergency(models.Model):
     time = models.CharField("Time", max_length=75, null=True, blank=True)
     place = models.CharField("Place", max_length=255, null=True, blank=True)
     solved = models.BooleanField("Solved", default=False)
+    created_on = models.DateTimeField("Created on", auto_now_add=True)
 
     class Meta:
+        ordering = ['-id']
         db_table = "emergencies"
         verbose_name = "Emergency"
         verbose_name_plural = "Emergencies"

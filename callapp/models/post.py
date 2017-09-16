@@ -6,6 +6,7 @@ class Post(models.Model):
     link = models.URLField("Link", null=True, blank=True)
     time = models.CharField("Time", max_length=75, null=True, blank=True)
     status = models.CharField("Status", max_length=255, null=True, blank=True)
+    created_on = models.DateTimeField("Created on", auto_now_add=True)
 
     class Meta:
         ordering = ['-id']

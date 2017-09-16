@@ -15,6 +15,7 @@ class Need(AbstractBaseLocation):
     contact = models.CharField("Contact", max_length=255, null=True, blank=True)
     location = models.CharField("Location", max_length=255, null=True, blank=True)
     solved = models.BooleanField("Solved", default=False)
+    created_on = models.DateTimeField("Created on", auto_now_add=True)
 
     class Meta:
         db_table = "needs"
