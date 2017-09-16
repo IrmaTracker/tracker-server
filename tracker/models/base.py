@@ -18,3 +18,11 @@ class AbstractRequestBase(models.Model):
 
     class Meta:
         abstract = True
+
+
+class AbstractBaseLocation(models.Model):
+    lat = models.DecimalField("Lat", max_digits=9, decimal_places=6, help_text="Latitude", blank=True, null=True)
+    long = models.DecimalField("Long", max_digits=9, decimal_places=6, help_text="Longitude", blank=True, null=True)
+
+    class Meta:
+        abstract = True

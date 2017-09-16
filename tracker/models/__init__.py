@@ -1,6 +1,8 @@
 from .area import Area
-from .base import AbstractRequestBase
+from .base import AbstractRequestBase, AbstractBaseLocation
 from .emergency_request import EmergencyRequest
+from .help_line import HelpLine
+from .post import Post
 from .person import Person
 from .supply import Supply
 from .supply_request import SupplyRequest
