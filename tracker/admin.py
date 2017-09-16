@@ -16,36 +16,36 @@ class PersonResource(resources.ModelResource):
         fields = ('name', 'district', 'phonenumber', 'address', 'safe', 'extra_info')
 
 
-class CustomPersonAdmin(ImportExportModelAdmin):
+class PersonAdmin(ImportExportModelAdmin):
     list_filter = ('safe', 'area__name', 'notified')
     list_display = ('name', 'district', 'address', 'area', 'safe')
     search_fields = ('name', 'phonenumber', 'district', 'address')
     resource_class = PersonResource
 
     def get_queryset(self, request):
-        queryset = super(CustomPersonAdmin, self).get_queryset(request)
+        queryset = super(PersonAdmin, self).get_queryset(request)
         if request.user.is_superuser:
             return queryset
         return queryset.filter(duplicate=False)
 
 
-class CustomEmergencyRequestAdmin(ImportExportModelAdmin):
+class EmergencyRequestAdmin(ImportExportModelAdmin):
     list_filter = ('resolved',)
     list_display = ('full_name', 'address', 'district', 'resolved')
     search_fields = ('full_name', 'address', 'district')
 
 
-class CustomSupplyAdmin(ImportExportModelAdmin):
-    list_filter = ('resolved',)
+class SupplyAdmin(ImportExportModelAdmin):
+    list_filter = ('district', 'resolved')
     list_display = ('full_name', 'address', 'district', 'resolved')
     search_fields = ('full_name', 'address', 'district')
 
 
 # Register models for Admin
-admin.site.register(Person, CustomPersonAdmin)
-admin.site.register(EmergencyRequest, CustomEmergencyRequestAdmin)
-admin.site.register(SupplySharing, CustomSupplyAdmin)
-admin.site.register(SupplyRequest, CustomSupplyAdmin)
+admin.site.register(Person, PersonAdmin)
+admin.site.register(EmergencyRequest, EmergencyRequestAdmin)
+admin.site.register(SupplySharing, SupplyAdmin)
+admin.site.register(SupplyRequest, SupplyAdmin)
 admin.site.register([Area, Supply])
 
 # portal overrides
