@@ -1,8 +1,8 @@
 from django.db import models
-from tracker.models import AbstractRequestBase
+from tracker.models import AbstractBaseLocation
 
 
-class Emergency(AbstractRequestBase):
+class Emergency(AbstractBaseLocation):
     """
     CallApp Table
     """
@@ -15,3 +15,9 @@ class Emergency(AbstractRequestBase):
 
     class Meta:
         db_table = "emergencies"
+
+    def __str__(self):
+        return self.name
+
+    def __unicode__(self):
+        return self.name

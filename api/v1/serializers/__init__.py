@@ -1,5 +1,6 @@
 from .area_serializers import AreaSerializer
 from .emergency_request_serializers import EmergencyRequestSerializer
+from .emergency_serializers import EmergencySerializer
 from .help_line_serializers import HelpLineSerializer
 from .person_serializers import PersonSerializer
 from .supply_serializer import SupplySerializer

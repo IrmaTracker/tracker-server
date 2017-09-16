@@ -1,5 +1,6 @@
 from .announcement_api_views import AnnouncementViewSet
 from .area_api_views import AreaViewSet
+from .emergency_api_views import EmergencyViewSet
 from .emergency_request_api_views import EmergencyRequestViewSet
 from .help_line_api_views import HelpLineViewSet
 from .person_api_views import PersonViewSet

@@ -10,3 +10,9 @@ class Post(models.Model):
     class Meta:
         ordering = ['-id']
         db_table = "posts"
+
+    def __str__(self):
+        return self.name
+
+    def __unicode__(self):
+        return self.name

@@ -17,7 +17,7 @@ router.register(r'supply-requests', views.SupplyRequestViewSet)
 router.register(r'emergency-requests', views.EmergencyRequestViewSet)
 router.register(r'posts', views.PostViewSet)
 router.register(r'helpline', views.HelpLineViewSet)
-
+router.register(r'emergencies', views.EmergencyViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
