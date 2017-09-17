@@ -11,9 +11,11 @@ class ActivityReport(models.Model):
     area = models.ForeignKey('Area', db_index=True, on_delete=models.CASCADE)
 
     address = models.CharField("Address", max_length=255)
-    content = models.TextField("Report", help_text="If this is a life-threatening emergency, please notify emergency services.")
+    content = models.TextField("Report",
+                               help_text="A description of the activity you're reporting. "
+                                         "If this is a life-threatening emergency, please notify emergency services.")
     resolved = models.BooleanField("Resolved", default=False, db_index=True)
-    district = models.CharField("District", max_length=255, db_index=True)
+    district = models.CharField("District", help_text="I.e. Cupecoy, Cayhill, etc.,", db_index=True, max_length=255)
 
     reporter_name = models.CharField("Reporter name", max_length=255)
     reporter_email = models.EmailField("Reporter email", null=True, blank=True)
