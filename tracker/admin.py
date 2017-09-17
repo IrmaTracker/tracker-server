@@ -54,7 +54,7 @@ class EmergencyRequestAdmin(ImportExportModelAdmin):
 
 
 class SupplyAdmin(ImportExportModelAdmin):
-    list_filter = ('district', 'resolved')
+    list_filter = ('district_admin', 'district', 'resolved')
     list_display = ('full_name', 'address', 'district', 'resolved')
     search_fields = ('full_name', 'address', 'district')
     actions = [mark_as_resolved]

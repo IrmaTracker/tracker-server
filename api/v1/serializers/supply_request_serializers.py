@@ -11,6 +11,7 @@ class SupplyRequestSerializer(serializers.ModelSerializer):
             'full_name',
             'address',
             'district',
+            'district_admin',
             'contact_numbers',
             'supplies',
             'quantity',
@@ -19,6 +20,7 @@ class SupplyRequestSerializer(serializers.ModelSerializer):
         )
         read_only_fields = (
             'id',
+            'district_admin',
             'resolved',
             'created_on'
         )

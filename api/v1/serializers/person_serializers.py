@@ -25,5 +25,6 @@ class PersonSerializer(serializers.ModelSerializer):
             'requester_number',
             'emergency_contact_name',
             'emergency_contact_number',
+            'duplicate',
             'created_on'
         )

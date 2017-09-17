@@ -60,6 +60,19 @@ class PersonViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
+    @list_route(methods=['GET'])
+    def duplicates(self, request):
+        """
+        Returns a list of persons marked as duplicates
+        """
+        queryset = self.filter_queryset(self.get_queryset())
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
     def get_queryset(self):
         area_id = self.get_area_id()
         if self.action == 'safe':
@@ -73,6 +86,12 @@ class PersonViewSet(viewsets.ModelViewSet):
         # we'll filter persons by area.
         if area_id:
             return queryset.filter(area_id=area_id, duplicate=False)
+
+        # return records that have been marked as duplicated
+        if self.action == 'duplicates':
+            return queryset.filter(duplicate=True)
+
+        # by default, return all records that have not been marked as duplicates
         return queryset.filter(duplicate=False)
 
     def get_area_id(self):
