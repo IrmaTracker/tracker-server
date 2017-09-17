@@ -7,4 +7,4 @@ class NeedSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Need
-        fields = ('name', 'need', 'need_id', 'link', 'time', 'contact', 'location', 'lat', 'long')
+        fields = ('name', 'need', 'need_id', 'time', 'contact', 'location', 'lat', 'long')
