@@ -28,7 +28,7 @@ class ActivityReport(models.Model):
         ordering = ['-created_on', '-resolved']
         db_table = "activity_reports"
         verbose_name = "Activity Report"
-        verbose_name_plural = "Acivity Reports"
+        verbose_name_plural = "Activity Reports"
 
     def get_absolute_url(self):
         return reverse('tracker:activity_report_detail', kwargs={'slug': self.area.slug, 'pk': self.id})
