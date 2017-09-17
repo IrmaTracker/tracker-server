@@ -7,7 +7,7 @@ class ActivityReport(models.Model):
     Activity Reports
     """
 
-    type = models.ForeignKey('Activity', db_index=True)
+    type = models.ForeignKey('Activity', db_index=True, help_text="Type of activity you would like to report.")
     area = models.ForeignKey('Area', db_index=True, on_delete=models.CASCADE)
 
     address = models.CharField("Address", max_length=255)
