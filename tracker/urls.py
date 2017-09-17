@@ -16,5 +16,8 @@ urlpatterns = [
         url(r'^supplies/$', views.SubmitSupplyShareRequestView.as_view(), name='submit_supplies'),
         url(r'^supplies/request/$', views.SubmitSupplyRequestView.as_view(), name='request_supplies'),
         url(r'^emergencies/$', views.SubmitEmergencyRequestView.as_view(), name='submit_emergency'),
+        url(r'^activity-reports/$', views.ActivityReportListView.as_view(), name='activity_report_list'),
+        url(r'^activity-reports/create/$', views.CreateActivityReportView.as_view(), name='create_activity_report'),
+        url(r'^activity-reports/(?P<pk>\d+)/$', views.ActivityReportDetailView.as_view(), name='activity_report_detail')
     ]))
 ]

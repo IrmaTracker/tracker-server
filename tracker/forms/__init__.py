@@ -1,3 +1,4 @@
+from .activity_report_form import ActivityReportForm
 from .area_form import AreaForm
 from .emergency_request_form import EmergencyRequestForm
 from .person_form import PersonForm, MarkSafePersonForm

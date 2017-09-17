@@ -1,3 +1,5 @@
+from .activity_api_views import ActivityViewSet
+from .activity_report_api_views import ActivityReportViewSet
 from .announcement_api_views import AnnouncementViewSet
 from .area_api_views import AreaViewSet
 from .emergency_api_views import EmergencyViewSet

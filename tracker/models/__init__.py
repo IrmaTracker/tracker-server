@@ -1,3 +1,5 @@
+from .activity import Activity
+from .activity_report import ActivityReport
 from .area import Area
 from .base import AbstractRequestBase, AbstractBaseLocation
 from .emergency_request import EmergencyRequest

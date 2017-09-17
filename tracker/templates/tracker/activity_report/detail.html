@@ -1,0 +1,15 @@
+{% extends 'tracker/base.html' %}
+{% block title %}{{ activityreport.type.name }} in {{ activityreport.address }}{% endblock %}
+{% load bootstrap3 %}
+{% block body %}
+    <ul class="list-unstyled">
+        <li><a href="{% url 'tracker:activity_report_list' slug=area.slug %}" class="btn btn-default btn-xs">Go back</a></li>
+    </ul>
+    <div class="jumbotron">
+        <span class="label label-danger pull-right">Reported: {{ activityreport.created_on }}</span>
+        <div class="clearfix"></div>
+        <h1 class="lead text-center">{{ activityreport.type.name }} in {{ activityreport.district }}</h1>
+        <p class="text-center">{{ activityreport.address }}</p>
+        <p class="text-center">"{{ activityreport.content }}"</p>
+    </div>
+{% endblock %}

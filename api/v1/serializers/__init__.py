@@ -1,3 +1,5 @@
+from .activity_serializers import ActivitySerializer
+from .activity_report_serializers import ActivityReportSerializer
 from .area_serializers import AreaSerializer
 from .emergency_request_serializers import EmergencyRequestSerializer
 from .emergency_serializers import EmergencySerializer

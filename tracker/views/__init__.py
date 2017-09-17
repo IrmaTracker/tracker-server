@@ -1,3 +1,4 @@
+from .activity_report_views import CreateActivityReportView, ActivityReportListView, ActivityReportDetailView
 from .area_views import AreaListView, AreaDetailView
 from .emergency_request_views import SubmitEmergencyRequestView
 from .person_views import (

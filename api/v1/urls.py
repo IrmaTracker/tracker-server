@@ -19,6 +19,8 @@ router.register(r'posts', views.PostViewSet)
 router.register(r'helpline', views.HelpLineViewSet)
 router.register(r'emergencies', views.EmergencyViewSet)
 router.register(r'needs', views.NeedViewSet)
+router.register(r'activities', views.ActivityViewSet)
+router.register(r'activity-reports', views.ActivityReportViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),

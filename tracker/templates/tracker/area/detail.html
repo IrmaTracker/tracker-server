@@ -1,5 +1,5 @@
 {% extends 'tracker/base.html' %}
-{% block title %}Person Tracker - {{ area.name }}{% endblock %}
+{% block title %}Tracker - {{ area.name }}{% endblock %}
 {% block body %}
     <ul class="list-unstyled">
         <li><a href="{% url 'tracker:area_list' %}" class="btn btn-default btn-xs">Back to Countries/Islands</a></li>
@@ -21,6 +21,8 @@
                 <li><a href="{% url 'tracker:request_supplies' slug=area.slug %}" class="btn btn-danger btn-lg">I want to request supplies</a></li>
                 <li>-</li>
                 <li><a href="{% url 'tracker:submit_supplies' slug=area.slug %}" class="btn btn-danger btn-lg">I want to share supplies</a></li>
+                <li>-</li>
+                <li><a href="{% url 'tracker:activity_report_list' slug=area.slug %}" class="btn btn-danger btn-lg">View/Report Activity</a></li>
             </ul>
         {% endif %}
     </div>
