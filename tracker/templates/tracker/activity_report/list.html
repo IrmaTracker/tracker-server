@@ -4,20 +4,23 @@
 {% block body %}
     <h1 class="lead">Reported Activity in {{ area.name }}</h1>
     <ul class="list-unstyled">
+        <li><a href="{% url 'tracker:area_detail' slug=area.slug %}" class="btn btn-default btn-xs">Go back</a></li>
+    </ul>
+    <ul class="list-unstyled">
         <li><a href="{% url 'tracker:create_activity_report' slug=area.slug %}" class="btn btn-primary">Report Activity</a></li>
     </ul>
     <div class="list-group">
-    {% for activity in activityreport_list %}
-        <a href="{{ activity.get_absolute_url }}" class="list-group-item">
-            <span class="badge">{{ activity.created_on }}</span>
-        {% if activity.resolved %}
-             <i class="glyphicon glyphicon-ok-sign text-success"></i>
-            {% else %}
-            <i class="glyphicon glyphicon-exclamation-sign text-danger"></i>
-        {% endif %}
-            {{ activity.type.name }} in {{ activity.district }} near {{ activity.address }}
-        </a>
-    {% endfor %}
+        {% for activity in activityreport_list %}
+            <a href="{{ activity.get_absolute_url }}" class="list-group-item">
+                <span class="badge">{{ activity.created_on }}</span>
+                {% if activity.resolved %}
+                    <i class="glyphicon glyphicon-ok-sign text-success"></i>
+                {% else %}
+                    <i class="glyphicon glyphicon-exclamation-sign text-danger"></i>
+                {% endif %}
+                {{ activity.type.name }} in {{ activity.district }} near {{ activity.address }}
+            </a>
+        {% endfor %}
     </div>
 
     {% if is_paginated %}
