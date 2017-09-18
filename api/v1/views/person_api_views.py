@@ -63,7 +63,7 @@ class PersonViewSet(viewsets.ModelViewSet):
     @list_route(methods=['GET'])
     def duplicates(self, request):
         """
-        Returns a list of persons marked as duplicates
+        Returns a list of persons marked as duplicates.
         """
         queryset = self.filter_queryset(self.get_queryset())
         page = self.paginate_queryset(queryset)
@@ -74,25 +74,22 @@ class PersonViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def get_queryset(self):
-        area_id = self.get_area_id()
+        base_queryset = Person.objects.filter(duplicate=False)
         if self.action == 'safe':
-            queryset = Person.objects.filter(safe=True)
+            queryset = base_queryset.filter(safe=True)
         elif self.action == 'missing':
-            queryset = Person.objects.filter(safe=False)
+            queryset = base_queryset.filter(safe=False)
+        elif self.action == 'duplicates':
+            queryset = Person.objects.filter(duplicate=True)
         else:
-            queryset = Person.objects.all()
+            queryset = base_queryset
 
         # if we get a request like `/api/v1/persons?area=1`
         # we'll filter persons by area.
+        area_id = self.get_area_id()
         if area_id:
-            return queryset.filter(area_id=area_id, duplicate=False)
-
-        # return records that have been marked as duplicated
-        if self.action == 'duplicates':
-            return queryset.filter(duplicate=True)
-
-        # by default, return all records that have not been marked as duplicates
-        return queryset.filter(duplicate=False)
+            return queryset.filter(area_id=area_id)
+        return queryset
 
     def get_area_id(self):
         try:
